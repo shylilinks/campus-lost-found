@@ -7,7 +7,12 @@
     "desc": "在图书馆三楼自习室丢了一只黑色蓝牙耳机，白色充电盒，里面有我室友的贴纸",
     "location": "图书馆三楼",
     "date": "2026-11-20",
-    "contact": "微信 lhw2025"
+    "contact": "微信 lhw2025",
+    "resolved": true,
+    "owner": null,
+    "photo": null,
+    "phash": null,
+    "resolved_as": "已找回"
   },
   {
     "id": 2,
@@ -17,7 +22,11 @@
     "desc": "校园卡不见了，卡面姓名李建威，可能在二食堂二楼或者体育馆",
     "location": "二食堂",
     "date": "2026-11-21",
-    "contact": "QQ 883920114"
+    "contact": "QQ 883920114",
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 3,
@@ -27,7 +36,11 @@
     "desc": "一把黑色的自动折叠伞，伞柄是木色的，上周五在教学楼C201上的课，下课时落在教室后面了",
     "location": "教学楼C201",
     "date": "2026-11-14",
-    "contact": "电话 13807100042"
+    "contact": "电话 13807100042",
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 4,
@@ -37,7 +50,11 @@
     "desc": "粉色保温水杯，杯身上有小熊贴纸，在操场看台看比赛的时候弄丢了",
     "location": "操场看台",
     "date": "2026-11-18",
-    "contact": "微信 lw_momoko"
+    "contact": "微信 lw_momoko",
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 5,
@@ -47,7 +64,11 @@
     "desc": "一串钥匙挂在宿舍钥匙扣上，有一个绿色的小熊挂件，可能掉在篮球场附近",
     "location": "篮球场",
     "date": "2026-11-22",
-    "contact": "QQ 775264831"
+    "contact": "QQ 775264831",
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 6,
@@ -57,7 +78,11 @@
     "desc": "高等数学上册课本，里面有我的笔记，扉页写了名字，在自习室占座的书被人挪走了",
     "location": "第一自习室",
     "date": "2026-11-19",
-    "contact": "微信 gaoShu2026"
+    "contact": "微信 gaoShu2026",
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 7,
@@ -67,7 +92,11 @@
     "desc": "在三楼自习室靠窗的位置捡到一只黑色蓝牙耳机，还有个白色充电盒，失主来认领",
     "location": "图书馆三楼",
     "date": "2026-11-20",
-    "contact": "QQ 339581207"
+    "contact": "QQ 339581207",
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 8,
@@ -77,7 +106,11 @@
     "desc": "在二食堂二楼餐桌上捡到一张校园卡，卡主姓李，已交给一楼值班台",
     "location": "二食堂",
     "date": "2026-11-21",
-    "contact": "微信 finder110"
+    "contact": "微信 finder110",
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 9,
@@ -87,7 +120,11 @@
     "desc": "教学楼C201教室捡到一把黑伞，放在讲台旁边好几天了没人拿",
     "location": "教学楼C201",
     "date": "2026-11-16",
-    "contact": "QQ 654129078"
+    "contact": "QQ 654129078",
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 10,
@@ -97,7 +134,11 @@
     "desc": "操场看台捡到一个粉色水杯，上面有小熊贴纸，来认领请描述杯身细节",
     "location": "操场看台",
     "date": "2026-11-18",
-    "contact": "微信 finder2026"
+    "contact": "微信 finder2026",
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 11,
@@ -107,7 +148,11 @@
     "desc": "篮球场边上捡到一串钥匙，带小熊挂件，宿管阿姨处也放了一把一样的",
     "location": "篮球场",
     "date": "2026-11-22",
-    "contact": "电话 13807100011"
+    "contact": "电话 13807100011",
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 12,
@@ -117,7 +162,11 @@
     "desc": "第一自习室捡到一本高等数学课本，扉页有名字， chap3 有笔记",
     "location": "第一自习室",
     "date": "2026-11-19",
-    "contact": "QQ 112039485"
+    "contact": "QQ 112039485",
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 13,
@@ -128,7 +177,10 @@
     "location": "9栋教学楼516教室",
     "date": "2026-11-23",
     "contact": "微信 lhw2025",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 14,
@@ -139,7 +191,10 @@
     "location": "9栋教学楼516教室",
     "date": "2026-11-23",
     "contact": "QQ 654129078",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 15,
@@ -150,7 +205,10 @@
     "location": "南区自习室306",
     "date": "2026-11-23",
     "contact": "QQ 883920114",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 16,
@@ -161,7 +219,10 @@
     "location": "南区自习室306",
     "date": "2026-11-23",
     "contact": "微信 finder2026",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 17,
@@ -172,7 +233,10 @@
     "location": "7栋宿舍车棚",
     "date": "2026-11-24",
     "contact": "电话 13807100011",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 18,
@@ -183,7 +247,10 @@
     "location": "7栋宿舍车棚",
     "date": "2026-11-24",
     "contact": "微信 finder110",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 19,
@@ -194,7 +261,10 @@
     "location": "一食堂一楼",
     "date": "2026-11-24",
     "contact": "QQ 775264831",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 20,
@@ -205,7 +275,10 @@
     "location": "一食堂一楼",
     "date": "2026-11-24",
     "contact": "微信 finder110",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 21,
@@ -216,7 +289,10 @@
     "location": "11栋教学楼402",
     "date": "2026-11-25",
     "contact": "微信 lhw2025",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 22,
@@ -227,7 +303,10 @@
     "location": "11栋教学楼402",
     "date": "2026-11-25",
     "contact": "QQ 339581207",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 23,
@@ -238,7 +317,10 @@
     "location": "二食堂三楼",
     "date": "2026-11-25",
     "contact": "微信 lw_momoko",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 24,
@@ -249,7 +331,10 @@
     "location": "二食堂三楼",
     "date": "2026-11-25",
     "contact": "QQ 112039485",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 25,
@@ -260,7 +345,10 @@
     "location": "体育馆",
     "date": "2026-11-25",
     "contact": "电话 13807100042",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 26,
@@ -271,7 +359,10 @@
     "location": "体育馆门口",
     "date": "2026-11-25",
     "contact": "QQ 654129078",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 27,
@@ -282,7 +373,10 @@
     "location": "南区操场",
     "date": "2026-11-25",
     "contact": "微信 lw_momoko",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 28,
@@ -293,7 +387,10 @@
     "location": "南区操场",
     "date": "2026-11-25",
     "contact": "微信 finder2026",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 29,
@@ -304,7 +401,10 @@
     "location": "7栋宿舍大厅",
     "date": "2026-11-24",
     "contact": "QQ 883920114",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 30,
@@ -315,7 +415,10 @@
     "location": "7栋宿舍大厅",
     "date": "2026-11-24",
     "contact": "微信 finder110",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 31,
@@ -326,7 +429,10 @@
     "location": "9栋教学楼309实验室",
     "date": "2026-11-25",
     "contact": "QQ 775264831",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 32,
@@ -337,7 +443,10 @@
     "location": "9栋教学楼309实验室",
     "date": "2026-11-25",
     "contact": "微信 finder2026",
-    "resolved": false
+    "resolved": false,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 33,
@@ -348,7 +457,10 @@
     "location": "图书馆大厅",
     "date": "2026-11-15",
     "contact": "QQ 339581207",
-    "resolved": true
+    "resolved": true,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 34,
@@ -359,7 +471,10 @@
     "location": "图书馆二楼",
     "date": "2026-11-16",
     "contact": "微信 finder110",
-    "resolved": true
+    "resolved": true,
+    "owner": null,
+    "photo": null,
+    "phash": null
   },
   {
     "id": 35,
@@ -370,6 +485,37 @@
     "location": "图书馆三楼",
     "date": "2026-11-17",
     "contact": "微信 lhw2025",
-    "resolved": true
+    "resolved": true,
+    "owner": null,
+    "photo": null,
+    "phash": null
+  },
+  {
+    "id": 36,
+    "type": "lost",
+    "title": "黑色钢笔（E2E 测试）",
+    "category": "其他",
+    "desc": "在9栋教学楼502上机课丢了一支黑色钢笔，笔帽有金属环",
+    "location": "9栋教学楼502",
+    "date": "2026-11-27",
+    "contact": "端到端测试同学QQ 999888777",
+    "owner": "20259999",
+    "photo": "item_36_e1003e.png",
+    "phash": 71951782682542073,
+    "resolved": false
+  },
+  {
+    "id": 37,
+    "type": "lost",
+    "title": "黑色钢笔（E2E）",
+    "category": "其他",
+    "desc": "在9栋教学楼502丢了一支黑色钢笔，笔帽有金属环",
+    "location": "9栋教学楼502",
+    "date": "2026-11-27",
+    "contact": "端到端测试同学QQ 999888777",
+    "owner": "2025225548",
+    "photo": "item_37_d40635.png",
+    "phash": 71951782682542073,
+    "resolved": false
   }
 ]

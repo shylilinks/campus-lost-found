@@ -1,0 +1,18 @@
+{
+  "20259999": {
+    "name": "端到端测试同学",
+    "pwd": "scrypt:32768:8:1$E53UTrtZQzHEh0Hr$6e39691fa2a5b3207913d74288dfaa10ca0b346afbc652b0efb75f16d1bf5c86f4eb94e4ab5e2f2b4378626d040034f56d0cc7bfb5f93c23783cd3f9b7fb9ccf"
+  },
+  "20258888": {
+    "name": "导航测试甲",
+    "pwd": "scrypt:32768:8:1$8rUW8UFXRwlr7Zlf$6c554c4a479b9dc80a459f9440056313a1a3d5ceac201ef75551ce26837850e7ef441b40d8b60d07cc6c203bf179a822c80b6a5fb7891e1041c36777baddc6aa"
+  },
+  "20257777": {
+    "name": "导航测试乙",
+    "pwd": "scrypt:32768:8:1$tuoB879BGeOdZUlB$04ac604cab1a35005de441773c1c73df4fbfda649a42470259a030e9c08e476086d819e46cbba49e9b30f6d832bcc420e98d7f42327749c0ef17c8f49186ee4a"
+  },
+  "2025225548": {
+    "name": "端到端测试同学",
+    "pwd": "scrypt:32768:8:1$Ja4rQpeqAfAjqscH$10e5dcc75bb0565e896a529ded4cb8b66d8cee9ecf23a8a6ce21225adb312dd1a0bade2d133ab0c83a180bf73618a7413c48e70e0e2c917ca55544389171d34c"
+  }
+}

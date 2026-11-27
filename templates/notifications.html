@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}通知{% endblock %}
+{% block body %}
+<div class="card">
+  <h1>🔔 我的通知</h1>
+  {% for n in notifs %}
+  <div class="match-card">
+    <div>{{ n.text }}</div>
+    <div class="loc">🕐 {{ n.time }} ｜ <a href="{{ n.link }}">查看</a></div>
+  </div>
+  {% else %}
+  <p>还没有通知。发布登记或收到新匹配/新留言时会在这里提醒。</p>
+  {% endfor %}
+</div>
+{% endblock %}

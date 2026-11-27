@@ -3,7 +3,7 @@
 {% block body %}
 <div class="card">
   <h1>发布登记</h1>
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     <label>类型</label>
     <select name="type">
       <option value="lost">我丢了东西（寻物启事）</option>
@@ -21,9 +21,11 @@
     <label>地点 *</label>
     <input type="text" name="location" required placeholder="例如：图书馆三楼">
     <label>日期 *</label>
-    <input type="date" name="date" required>
+    <input type="date" name="date" required value="{{ today }}">
     <label>联系方式 *</label>
-    <input type="text" name="contact" required placeholder="微信 / QQ / 手机号">
+    <input type="text" name="contact" required value="{{ user.name if user else '' }}" placeholder="微信 / QQ / 手机号">
+    <label>物品照片（可选，上传后可用“以图搜物”）</label>
+    <input type="file" name="photo" accept="image/*">
     <p><button class="btn green" type="submit">发布</button></p>
   </form>
 </div>

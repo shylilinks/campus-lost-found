@@ -8,7 +8,16 @@
   <span class="brand">🎒 校园失物招领 · 智能匹配</span>
   <span>
     <a href="{{ url_for('index') }}">失物大厅</a>
+    <a href="{{ url_for('photosearch') }}">以图搜物</a>
     <a href="{{ url_for('publish') }}">发布登记</a>
+    {% if current_user %}
+      <a href="{{ url_for('notifications') }}">🔔 通知{% if unread_count(session.get('uid')) %}<span class="bell-dot">{{ unread_count(session.get('uid')) }}</span>{% endif %}</a>
+      <span class="nav-user">👤 {{ current_user().name }}</span>
+      <a href="{{ url_for('logout') }}">退出</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">登录</a>
+      <a href="{{ url_for('register') }}">注册</a>
+    {% endif %}
   </span>
 </nav>
 <main>{% block body %}{% endblock %}</main>

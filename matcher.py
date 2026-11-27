@@ -25,7 +25,26 @@ def save_items(items):
 
 def tokenize(text):
     words = jieba.lcut(text or "")
-    return " ".join(w for w in words if w.strip() and re.match(r"^[\u4e00-\u9fa5A-Za-z0-9]+$", w))
+    kept = [w for w in words if w.strip() and re.match(r"^[\u4e00-\u9fa5A-Za-z0-9]+$", w)]
+    # 语义增强：同义词归一化扩展（水杯/杯子、平板/平板电脑、自行车/单车……）
+    out = list(kept)
+    for w in kept:
+        if w in SYNONYMS:
+            out.append(SYNONYMS[w])
+    return " ".join(out)
+
+
+SYNONYMS = {
+    "水杯": "杯子", "保温杯": "杯子", "杯子": "水杯",
+    "平板": "平板电脑", "ipad": "平板电脑",
+    "自行车": "单车", "单车": "自行车",
+    "书包": "背包", "背包": "书包",
+    "雨伞": "伞", "伞": "雨伞",
+    "蓝牙耳机": "耳机", "耳机": "蓝牙耳机",
+    "手机": "电话", "钥匙扣": "钥匙",
+    "校园卡": "卡证", "学生证": "证件", "身份证": "证件",
+    "充电宝": "电源", "笔记本": "电脑",
+}
 
 
 def common_words(text_a, text_b, min_len=2):

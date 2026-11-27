@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}以图搜物{% endblock %}
+{% block body %}
+<div class="card">
+  <h1>🖼 以图搜物</h1>
+  <p style="color:#475569;font-size:14px">上传一张物品照片，系统用感知哈希（aHash）与所有已登记照片比对，找出外观最相似的记录。</p>
+  <form method="post" enctype="multipart/form-data">
+    <input type="file" name="photo" accept="image/*" required>
+    <p><button class="btn" type="submit">搜索相似物品</button></p>
+  </form>
+</div>
+
+{% if query_img %}
+<div class="card">
+  <h2>查询图片</h2>
+  <img src="{{ url_for('uploads', name=query_img) }}" style="max-width:280px;border-radius:8px">
+</div>
+{% endif %}
+
+{% if results %}
+<div class="card">
+  <h2>相似结果（按外观距离从小到大）</h2>
+  {% for r in results %}
+  <div class="match-card">
+    <a class="item-link" href="{{ url_for('item_detail', item_id=r.item.id) }}">{{ EMOJI.get(r.item.category, '📦') }} {{ r.item.title }}</a>
+    <span class="score">距离 {{ r.dist }}</span>
+    <div>{{ r.item.desc }} ｜ 📍 {{ r.item.location }}</div>
+    {% if r.item.photo %}
+    <img src="{{ url_for('uploads', name=r.item.photo) }}" style="max-width:200px;border-radius:8px;margin-top:6px">
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="card"><p>暂无可比对的登记照片。发布登记时上传照片后，这里就能搜到。</p></div>
+{% endif %}
+{% endblock %}
