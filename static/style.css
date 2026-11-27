@@ -40,3 +40,8 @@ mark { background: #86efac; padding: 0 2px; }
 .msg .time { color: #94a3b8; font-size: 12px; margin-left: 8px; }
 #chat-input { display: flex; gap: 8px; margin-top: 10px; }
 #chat-input input { flex: 1; }
+
+.match-card { transition: box-shadow .2s; }
+.match-card:hover { box-shadow: 0 4px 16px rgba(29,78,216,.15); }
+.badge { transition: transform .15s; }
+.badge:hover { transform: scale(1.06); }
