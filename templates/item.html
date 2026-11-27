@@ -1,15 +1,16 @@
 {% extends "base.html" %}
-{% block title %}{{ item.title }}{% endblock %}
 {% block body %}
 <div class="card">
   <h1>
-    {% if item.type == 'lost' %}<span class="badge lost">寻物启事</span>{% else %}<span class="badge found">失物招领</span>{% endif %}
-    {{ item.title }}
+    {{ emoji }} {{ item.title }}
     {% if item.resolved %}<span class="badge resolved-badge">{{ item.resolved_as or '已解决' }}</span>{% endif %}
   </h1>
-  <p><b>类别：</b>{{ item.category }} ｜ <b>地点：</b>{{ item.location }} ｜ <b>日期：</b>{{ item.date }}</p>
+  <p><b>类别：</b>{{ item.category }} ｜ <b>地点：</b>{{ item.location }} ｜ <b>日期：</b>{{ item.date }}（{{ item.date | reltime }}）</p>
   <p><b>描述：</b>{{ item.desc }}</p>
-  <p><b>联系方式：</b>{{ item.contact }}</p>
+  <p>
+    <b>联系方式：</b><span id="contact-text">{{ item.contact }}</span>
+    <button class="copy-btn" onclick="copyContact()">📋 复制</button>
+  </p>
   <p>
     <a class="btn" href="{{ url_for('matches', item_id=item.id) }}">🔍 智能匹配推荐</a>
     <a class="btn green" href="{{ url_for('chat', item_id=item.id) }}">💬 私聊留言</a>
@@ -30,4 +31,14 @@
   ③ 过两天再来刷新看看，新登记会自动参与智能匹配。
 </div>
 {% endif %}
+<script>
+function copyContact() {
+  const t = document.getElementById('contact-text').textContent.trim();
+  navigator.clipboard.writeText(t).then(() => {
+    const b = document.querySelector('.copy-btn');
+    b.textContent = '✅ 已复制';
+    setTimeout(() => { b.textContent = '📋 复制'; }, 1500);
+  });
+}
+</script>
 {% endblock %}

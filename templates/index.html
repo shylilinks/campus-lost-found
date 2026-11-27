@@ -1,33 +1,59 @@
 {% extends "base.html" %}
 {% block body %}
+<div class="card hero">
+  <h1>🎒 失物大厅</h1>
+  <div class="stat-row">
+    <span class="stat"><b>{{ counts.lost }}</b> 寻物启事</span>
+    <span class="stat"><b>{{ counts.found }}</b> 失物招领</span>
+    <span class="stat"><b>{{ counts.resolved }}</b> 已解决</span>
+    <span class="stat"><b>{{ total_pool }}</b> 参与匹配</span>
+  </div>
+  <span class="hero-tip">丢东西了？先<a href="{{ url_for('index', type='lost') }}">看寻物区</a>，再<a href="{{ url_for('publish') }}">发布</a>后用<b>智能匹配</b>；都没消息就找{{ guard_hint }}。</span>
+</div>
+
 <div class="card">
-  <h1>失物大厅</h1>
-  <span class="stat"><b>{{ counts.lost }}</b> 条寻物启事</span>
-  <span class="stat"><b>{{ counts.found }}</b> 条失物招领</span>
-  <span class="stat">没找到？试试 <a href="{{ url_for('publish') }}">发布登记</a> 后使用智能匹配</span>
+  <h2>📊 物品类别分布</h2>
+  {% for cat, n in cat_stats %}
+  <div class="catbar-row">
+    <span class="catbar-name">{{ EMOJI.get(cat, '📦') }} {{ cat }}</span>
+    <div class="catbar-track"><div class="catbar-fill" style="width: {{ (n * 100 / max_cat) | round | int }}%"></div></div>
+    <span class="catbar-n">{{ n }}</span>
+  </div>
+  {% endfor %}
 </div>
 
 <div class="card">
   <h2>物品列表</h2>
-  <p>
-    <a class="btn {{ 'gray' if ftype == 'all' }}" href="{{ url_for('index', type='all') }}">全部</a>
-    <a class="btn {{ 'gray' if ftype == 'lost' }}" href="{{ url_for('index', type='lost') }}">寻物启事</a>
-    <a class="btn {{ 'gray' if ftype == 'found' }}" href="{{ url_for('index', type='found') }}">失物招领</a>
+  <form class="search-row" method="get">
+    {% if ftype != 'all' %}<input type="hidden" name="type" value="{{ ftype }}">{% endif %}
+    <input class="search-box" type="text" name="q" value="{{ q }}" placeholder="🔍 搜索物品名 / 描述 / 地点…">
+    <button class="btn" type="submit">搜索</button>
+    {% if q %}<a class="btn gray" href="{{ url_for('index') }}">清除</a>{% endif %}
+  </form>
+  <p class="tabs">
+    <a class="tab {{ 'active' if ftype == 'all' }}" href="{{ url_for('index', q=q) }}">全部 ({{ counts.lost + counts.found }})</a>
+    <a class="tab {{ 'active' if ftype == 'lost' }}" href="{{ url_for('index', type='lost', q=q) }}">寻物启事 ({{ counts.lost }})</a>
+    <a class="tab {{ 'active' if ftype == 'found' }}" href="{{ url_for('index', type='found', q=q) }}">失物招领 ({{ counts.found }})</a>
+    <a class="tab {{ 'active' if ftype == 'resolved' }}" href="{{ url_for('index', type='resolved', q=q) }}">已解决 ({{ counts.resolved }})</a>
   </p>
   <table>
-    <tr><th>类型</th><th>物品</th><th>类别</th><th>地点</th><th>日期</th><th>联系方式</th><th>操作</th></tr>
+    <tr><th>类型</th><th>物品</th><th>类别</th><th>地点</th><th>时间</th><th>联系方式</th><th>操作</th></tr>
     {% for x in items %}
     <tr>
-      <td>{% if x.type == 'lost' %}<span class="badge lost">寻物</span>{% else %}<span class="badge found">招领</span>{% endif %}</td>
-      <td><a class="item-link" href="{{ url_for('item_detail', item_id=x.id) }}">{{ x.title }}</a></td>
+      <td>
+        {% if x.resolved %}<span class="badge resolved-badge">已解决</span>
+        {% elif x.type == 'lost' %}<span class="badge lost">寻物</span>
+        {% else %}<span class="badge found">招领</span>{% endif %}
+      </td>
+      <td><a class="item-link" href="{{ url_for('item_detail', item_id=x.id) }}">{{ x.emoji }} {{ x.title }}</a></td>
       <td>{{ x.category }}</td>
       <td>{{ x.location }}</td>
-      <td>{{ x.date }}</td>
+      <td><span class="reltime">{{ x.date | reltime }}</span><br><span class="date-small">{{ x.date }}</span></td>
       <td>{{ x.masked }}</td>
       <td><a class="btn" href="{{ url_for('matches', item_id=x.id) }}">智能匹配</a></td>
     </tr>
     {% endfor %}
-    {% if not items %}<tr><td colspan="7">暂无记录，点击右上角“发布登记”添加。</td></tr>{% endif %}
+    {% if not items %}<tr><td colspan="7">没有匹配“{{ q }}”的记录，换个关键词试试。</td></tr>{% endif %}
   </table>
 </div>
 {% endblock %}

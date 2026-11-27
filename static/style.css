@@ -45,3 +45,23 @@ mark { background: #86efac; padding: 0 2px; }
 .match-card:hover { box-shadow: 0 4px 16px rgba(29,78,216,.15); }
 .badge { transition: transform .15s; }
 .badge:hover { transform: scale(1.06); }
+
+/* 类别统计条 */
+.catbar-row { display: flex; align-items: center; gap: 10px; margin: 7px 0; }
+.catbar-name { width: 150px; font-size: 14px; }
+.catbar-track { flex: 1; height: 12px; background: #eef2f7; border-radius: 999px; overflow: hidden; }
+.catbar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #60a5fa, #2563eb); }
+.catbar-n { width: 30px; text-align: right; font-size: 13px; color: #475569; }
+/* 搜索与标签 */
+.search-row { display: flex; gap: 8px; margin-bottom: 10px; }
+.search-box { flex: 1; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.tab { padding: 7px 16px; border-radius: 999px; background: #eef2f7; color: #334155; text-decoration: none; font-size: 14px; }
+.tab.active { background: #2563eb; color: #fff; font-weight: bold; }
+.reltime { font-weight: bold; color: #0f172a; }
+.date-small { font-size: 12px; color: #94a3b8; }
+.copy-btn { border: 1px solid #cbd5e1; background: #f8fafc; border-radius: 6px; padding: 4px 10px; cursor: pointer; font-size: 13px; margin-left: 6px; }
+.copy-btn:hover { background: #e2e8f0; }
+.emoji { margin-right: 4px; }
+.score-track { height: 8px; background: #e2e8f0; border-radius: 999px; margin: 6px 0 8px; overflow: hidden; }
+.score-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #3b82f6, #22c55e); }

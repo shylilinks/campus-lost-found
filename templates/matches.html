@@ -15,8 +15,9 @@
     <a class="item-link" href="{{ url_for('item_detail', item_id=r.item.id) }}">{{ r.item.title }}</a>
     <span class="score">{{ r.score }} 分</span>
     <span class="stars">{% for i in range(5) %}{% if i < r.stars %}★{% else %}☆{% endif %}{% endfor %}</span>
+    <div class="score-track"><div class="score-fill" style="width: {{ r.score | int }}%"></div></div>
     <div>{{ r.item.desc }}</div>
-    <div class="loc">📍 {{ r.item.location }} ｜ 📅 {{ r.item.date }} ｜ ☎ {{ r.item.contact }}</div>
+    <div class="loc">📍 {{ r.item.location }} ｜ 📅 {{ r.item.date | reltime }}（{{ r.item.date }}） ｜ ☎ {{ r.item.contact }}</div>
     {% if r.common %}
     <div>重合关键词：{% for w in r.common %}<mark>{{ w }}</mark> {% endfor %}</div>
     {% endif %}
