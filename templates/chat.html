@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}私聊留言 - {{ item.title }}{% endblock %}
+{% block body %}
+<div class="card">
+  <h1>💬 私聊留言</h1>
+  <p>关于：<b>{{ item.title }}</b>（{{ '寻物' if item.type == 'lost' else '招领' }}）｜ 联系方式：{{ item.contact }}</p>
+  <div id="chat-box"></div>
+  <div id="chat-input">
+    <input type="text" id="name" placeholder="你的昵称（可留空）" style="max-width:160px">
+    <input type="text" id="text" placeholder="输入留言，例如：我好像捡到了这个">
+    <button class="btn" onclick="send()">发送</button>
+  </div>
+</div>
+<script>
+const ID = {{ item.id }};
+function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+async function refresh() {
+  const r = await fetch('/api/messages/' + ID);
+  const data = await r.json();
+  const box = document.getElementById('chat-box');
+  box.innerHTML = (data.messages || []).map(m =>
+    `<div class="msg"><span class="name">${esc(m.name)}</span>${esc(m.text)}<span class="time">${esc(m.time)}</span></div>`).join('')
+    || '<div class="msg">还没有留言，来第一条吧～</div>';
+  box.scrollTop = box.scrollHeight;
+}
+async function send() {
+  const name = document.getElementById('name').value;
+  const text = document.getElementById('text').value.trim();
+  if (!text) return;
+  await fetch('/api/messages/' + ID, { method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, text }) });
+  document.getElementById('text').value = '';
+  refresh();
+}
+refresh();
+setInterval(refresh, 2000);
+</script>
+{% endblock %}

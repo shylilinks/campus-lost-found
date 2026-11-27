@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8">
+<title>{% block title %}校园失物招领{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head><body>
+<nav>
+  <span class="brand">🎒 校园失物招领 · 智能匹配</span>
+  <span>
+    <a href="{{ url_for('index') }}">失物大厅</a>
+    <a href="{{ url_for('publish') }}">发布登记</a>
+  </span>
+</nav>
+<main>{% block body %}{% endblock %}</main>
+</body></html>

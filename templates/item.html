@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}{{ item.title }}{% endblock %}
+{% block body %}
+<div class="card">
+  <h1>
+    {% if item.type == 'lost' %}<span class="badge lost">寻物启事</span>{% else %}<span class="badge found">失物招领</span>{% endif %}
+    {{ item.title }}
+    {% if item.resolved %}<span class="badge resolved-badge">{{ item.resolved_as or '已解决' }}</span>{% endif %}
+  </h1>
+  <p><b>类别：</b>{{ item.category }} ｜ <b>地点：</b>{{ item.location }} ｜ <b>日期：</b>{{ item.date }}</p>
+  <p><b>描述：</b>{{ item.desc }}</p>
+  <p><b>联系方式：</b>{{ item.contact }}</p>
+  <p>
+    <a class="btn" href="{{ url_for('matches', item_id=item.id) }}">🔍 智能匹配推荐</a>
+    <a class="btn green" href="{{ url_for('chat', item_id=item.id) }}">💬 私聊留言</a>
+    {% if not item.resolved %}
+    <form method="post" action="{{ url_for('resolve', item_id=item.id) }}" style="display:inline"
+          onsubmit="return confirm('确认该物品已{{ '找回' if item.type == 'lost' else '被认领' }}吗？')">
+      <button class="btn gray" type="submit">标记{{ '已找回' if item.type == 'lost' else '已认领' }}</button>
+    </form>
+    {% endif %}
+  </p>
+</div>
+
+{% if item.type == 'lost' and not item.resolved %}
+<div class="fallback">
+  💡 <b>找不到匹配的登记？</b>别急：
+  ① 联系<b>{{ guard.org }}</b>调取监控，值班室在{{ guard.room }}，电话 {{ guard.phone }}；
+  ② 把失物信息发到班级群和校园集市群；
+  ③ 过两天再来刷新看看，新登记会自动参与智能匹配。
+</div>
+{% endif %}
+{% endblock %}

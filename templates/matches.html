@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}智能匹配 - {{ item.title }}{% endblock %}
+{% block body %}
+<div class="card">
+  <h1>🔍 智能匹配推荐</h1>
+  <p>
+    {% if item.type == 'lost' %}<span class="badge lost">寻物启事</span>{% else %}<span class="badge found">失物招领</span>{% endif %}
+    <b>{{ item.title }}</b> ｜ {{ item.category }} ｜ {{ item.location }} ｜ {{ item.date }}
+  </p>
+  <p class="loc">{{ item.desc }}</p>
+
+  {% for r in results %}
+  <div class="match-card">
+    {% if r.item.type == 'lost' %}<span class="badge lost">寻物</span>{% else %}<span class="badge found">招领</span>{% endif %}
+    <a class="item-link" href="{{ url_for('item_detail', item_id=r.item.id) }}">{{ r.item.title }}</a>
+    <span class="score">{{ r.score }} 分</span>
+    <span class="stars">{% for i in range(5) %}{% if i < r.stars %}★{% else %}☆{% endif %}{% endfor %}</span>
+    <div>{{ r.item.desc }}</div>
+    <div class="loc">📍 {{ r.item.location }} ｜ 📅 {{ r.item.date }} ｜ ☎ {{ r.item.contact }}</div>
+    {% if r.common %}
+    <div>重合关键词：{% for w in r.common %}<mark>{{ w }}</mark> {% endfor %}</div>
+    {% endif %}
+    <a class="btn green" href="{{ url_for('chat', item_id=r.item.id) }}">💬 联系对方（私聊留言）</a>
+  </div>
+  {% endfor %}
+
+  {% if not results %}
+  <div class="fallback">
+    💡 <b>暂时没有匹配到相似登记。</b>别灰心，建议：
+    ① 联系<b>{{ guard.org }}</b>调取监控，值班室在{{ guard.room }}，电话 {{ guard.phone }}；
+    ② 把信息发到班级群和校园集市群，扩大线索范围；
+    ③ 过两天再来刷新，新登记会自动参与智能匹配。
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card">
+  <h1>失物大厅</h1>
+  <span class="stat"><b>{{ counts.lost }}</b> 条寻物启事</span>
+  <span class="stat"><b>{{ counts.found }}</b> 条失物招领</span>
+  <span class="stat">没找到？试试 <a href="{{ url_for('publish') }}">发布登记</a> 后使用智能匹配</span>
+</div>
+
+<div class="card">
+  <h2>物品列表</h2>
+  <p>
+    <a class="btn {{ 'gray' if ftype == 'all' }}" href="{{ url_for('index', type='all') }}">全部</a>
+    <a class="btn {{ 'gray' if ftype == 'lost' }}" href="{{ url_for('index', type='lost') }}">寻物启事</a>
+    <a class="btn {{ 'gray' if ftype == 'found' }}" href="{{ url_for('index', type='found') }}">失物招领</a>
+  </p>
+  <table>
+    <tr><th>类型</th><th>物品</th><th>类别</th><th>地点</th><th>日期</th><th>联系方式</th><th>操作</th></tr>
+    {% for x in items %}
+    <tr>
+      <td>{% if x.type == 'lost' %}<span class="badge lost">寻物</span>{% else %}<span class="badge found">招领</span>{% endif %}</td>
+      <td><a class="item-link" href="{{ url_for('item_detail', item_id=x.id) }}">{{ x.title }}</a></td>
+      <td>{{ x.category }}</td>
+      <td>{{ x.location }}</td>
+      <td>{{ x.date }}</td>
+      <td>{{ x.masked }}</td>
+      <td><a class="btn" href="{{ url_for('matches', item_id=x.id) }}">智能匹配</a></td>
+    </tr>
+    {% endfor %}
+    {% if not items %}<tr><td colspan="7">暂无记录，点击右上角“发布登记”添加。</td></tr>{% endif %}
+  </table>
+</div>
+{% endblock %}
