@@ -2,3 +2,12 @@ __pycache__/
 *.pyc
 shots/
 report.html
+
+matcher_run.txt
+mt.txt
+pt.txt
+pytest_out.txt
+flask_log.txt
+.pytest_cache/
+
+.github/
